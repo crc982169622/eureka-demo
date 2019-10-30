@@ -8,6 +8,9 @@ spring:
 eureka:
   client:
     service-url:
-#      defaultZone: http://127.0.0.1:8080/eureka/
-      #集群模式
-      defaultZone: http://127.0.0.1:8081/eureka/,http://127.0.0.1:8082/eureka/,http://127.0.0.1:8083/eureka/
+      defaultZone: http://127.0.0.1:8080/eureka/
+#      defaultZone: http://127.0.0.1:8081/eureka/,http://127.0.0.1:8082/eureka/,http://127.0.0.1:8083/eureka/ # 集群模式
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 向服务端发送心跳包的时间间隔（默认30s）
+    lease-expiration-duration-in-seconds: 5 # 在该时间范围内未向服务端发送心跳包，表明是失效服务（默认90s）
+
